@@ -1,0 +1,117 @@
+# diff all
+# Betaflight / BETAFLIGHTF3 (BFF3) 3.5.1 Aug 22 2018 / 05:12:50 (8b0cacb) MSP API: 1.40
+
+mcu_id 002b00384734571520353533
+defaults nosave
+name LancusFPVUAT
+resource MOTOR 1 A02
+resource MOTOR 2 A08
+resource MOTOR 8 NONE
+resource LED_STRIP 1 NONE
+resource ESCSERIAL 1 NONE
+
+feature MOTOR_STOP
+feature LED_STRIP
+beeper -ON_USB
+map TAER1234
+serial 2 8192 115200 57600 0 115200
+aux 0 0 2 1300 1700 0 0
+aux 1 2 3 900 1300 0 0
+aux 2 27 2 900 1300 0 0
+aux 3 13 0 1375 1650 0 0
+aux 4 15 0 1700 2100 0 0
+aux 5 19 0 1775 2100 0 0
+aux 6 26 2 1300 1700 0 0
+aux 7 28 3 1275 1700 0 0
+set rssi_channel = 6
+set rc_interp = MANUAL
+set rc_interp_int = 9
+set rc_smoothing_type = FILTER
+set motor_pwm_protocol = DSHOT600
+set bat_capacity = 1300
+set current_meter = VIRTUAL
+set vbat_scale = 111
+set vbat_divider = 11
+set yaw_motors_reversed = ON
+set small_angle = 180
+set osd_rssi_alarm = 45
+set osd_cap_alarm = 1300
+set osd_tim1 = 1280
+set osd_tim2 = 1281
+set osd_vbat_pos = 2060
+set osd_rssi_pos = 2074
+set osd_tim_1_pos = 54
+set osd_tim_2_pos = 2049
+set osd_flymode_pos = 333
+set osd_throttle_pos = 449
+set osd_vtx_channel_pos = 377
+set osd_ah_pos = 200
+set osd_current_pos = 2528
+set osd_mah_drawn_pos = 353
+set osd_craft_name_pos = 2548
+set osd_gps_speed_pos = 218
+set osd_gps_lon_pos = 82
+set osd_gps_lat_pos = 65
+set osd_gps_sats_pos = 51
+set osd_home_dir_pos = 302
+set osd_home_dist_pos = 303
+set osd_compass_bar_pos = 266
+set osd_altitude_pos = 247
+set osd_pid_roll_pos = 423
+set osd_pid_pitch_pos = 455
+set osd_pid_yaw_pos = 487
+set osd_debug_pos = 1
+set osd_power_pos = 321
+set osd_pidrate_profile_pos = 345
+set osd_warnings_pos = 2345
+set osd_avg_cell_voltage_pos = 2066
+set osd_pit_ang_pos = 257
+set osd_rol_ang_pos = 289
+set osd_battery_usage_pos = 455
+set osd_disarmed_pos = 2187
+set osd_nheading_pos = 311
+set osd_nvario_pos = 279
+set osd_esc_tmp_pos = 82
+set osd_esc_rpm_pos = 83
+set osd_stat_rtc_date_time = ON
+set osd_stat_max_spd = OFF
+set osd_stat_endbatt = ON
+set vtx_band = 5
+set vtx_power = 2
+set vtx_freq = 5658
+profile 0
+
+set dterm_notch_cutoff = 0
+set feedforward_transition = 14
+set f_pitch = 67
+set f_roll = 57
+profile 1
+
+profile 2
+
+profile 0
+rateprofile 0
+
+set thr_expo = 70
+set roll_rc_rate = 115
+set pitch_rc_rate = 115
+set yaw_rc_rate = 130
+set roll_expo = 30
+set pitch_expo = 30
+set yaw_expo = 3
+set roll_srate = 78
+set pitch_srate = 78
+set yaw_srate = 75
+set tpa_rate = 20
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+rateprofile 4
+
+rateprofile 5
+
+rateprofile 0
+save
