@@ -12,7 +12,7 @@ resource MOTOR 5 B00
 resource MOTOR 6 B01
 resource MOTOR 7 A03
 resource MOTOR 8 A02
-resource SERVO 1 NONE
+resource SERVO 1 B07
 resource SERVO 2 NONE
 resource SERVO 3 NONE
 resource SERVO 4 NONE
@@ -43,7 +43,7 @@ resource SERIAL_RX 7 NONE
 resource SERIAL_RX 8 NONE
 resource SERIAL_RX 9 NONE
 resource SERIAL_RX 10 NONE
-resource SERIAL_RX 11 B00
+resource SERIAL_RX 11 F00
 resource SERIAL_RX 12 NONE
 resource LED 1 NONE
 resource LED 2 NONE
@@ -59,7 +59,7 @@ resource SPI_MISO 3 NONE
 resource SPI_MOSI 1 B05
 resource SPI_MOSI 2 B15
 resource SPI_MOSI 3 NONE
-resource ESCSERIAL 1 B07
+resource ESCSERIAL 1 F00
 resource CAMERA_CONTROL 1 NONE
 resource ADC_BATT 1 A04
 resource ADC_RSSI 1 B02
@@ -89,14 +89,14 @@ mixer QUADX
 
 mmix reset
 
-servo 0 1000 2000 1500 100 -1
-servo 1 1000 2000 1500 100 -1
-servo 2 1000 2000 1500 100 -1
-servo 3 1000 2000 1500 100 -1
-servo 4 1000 2000 1500 100 -1
-servo 5 1000 2000 1500 100 -1
-servo 6 1000 2000 1500 100 -1
-servo 7 1000 2000 1500 100 -1
+servo 0 1000 2000 1500 100 4
+servo 1 1000 2000 1500 100 5
+servo 2 1000 2000 1500 100 6
+servo 3 1000 2000 1500 100 7
+servo 4 1000 2000 1500 100 8
+servo 5 1000 2000 1500 100 9
+servo 6 1000 2000 1500 100 10
+servo 7 1000 2000 1500 100 11
 smix reset
 
 
@@ -127,8 +127,8 @@ feature -DYNAMIC_FILTER
 feature RX_SERIAL
 feature MOTOR_STOP
 feature TELEMETRY
-feature LED_STRIP
 feature OSD
+feature CHANNEL_FORWARDING
 feature ANTI_GRAVITY
 feature DYNAMIC_FILTER
 beeper GYRO_CALIBRATED
@@ -183,7 +183,7 @@ serial 0 32 115200 57600 0 115200
 serial 1 64 115200 57600 0 115200
 serial 2 2048 115200 57600 0 115200
 led 0 2,8::C:0
-led 1 3,8::C:0
+led 1 3,8::CB:0
 led 2 0,0::C:0
 led 3 0,0::C:0
 led 4 0,0::C:0
@@ -282,10 +282,10 @@ aux 0 0 2 1300 1700 0 0
 aux 1 2 3 900 1300 0 0
 aux 2 27 2 900 1300 0 0
 aux 3 13 0 1375 1650 0 0
-aux 4 19 0 1775 2100 0 0
-aux 5 26 2 1300 1700 0 0
-aux 6 28 3 1275 1700 0 0
-aux 7 0 0 900 900 0 0
+aux 4 15 2 1300 2100 0 0
+aux 5 19 0 1775 2100 0 0
+aux 6 26 2 1300 1700 0 0
+aux 7 28 3 1275 1700 0 0
 aux 8 0 0 900 900 0 0
 aux 9 0 0 900 900 0 0
 aux 10 0 0 900 900 0 0
@@ -424,7 +424,7 @@ set align_board_pitch = 0
 set align_board_yaw = 0
 set gimbal_mode = NORMAL
 set bat_capacity = 1300
-set vbat_max_cell_voltage = 43
+set vbat_max_cell_voltage = 42
 set vbat_full_cell_voltage = 41
 set vbat_min_cell_voltage = 33
 set vbat_warning_cell_voltage = 35
@@ -436,7 +436,7 @@ set use_vbat_alerts = ON
 set use_cbat_alerts = OFF
 set cbat_alert_percent = 10
 set vbat_cutoff_percent = 100
-set vbat_scale = 111
+set vbat_scale = 112
 set vbat_divider = 10
 set vbat_multiplier = 1
 set ibata_scale = 220
@@ -566,11 +566,11 @@ set task_statistics = ON
 set debug_mode = GYRO_SCALED
 set rate_6pos_switch = OFF
 set pwr_on_arm_grace = 5
-set vtx_band = 3
+set vtx_band = 5
 set vtx_channel = 4
-set vtx_power = 1
+set vtx_power = 2
 set vtx_low_power_disarm = OFF
-set vtx_freq = 5645
+set vtx_freq = 5769
 set vtx_pit_mode_freq = 0
 set vtx_halfduplex = ON
 set vcd_video_system = AUTO
@@ -666,7 +666,7 @@ set pid_at_min_throttle = ON
 set anti_gravity_mode = SMOOTH
 set anti_gravity_threshold = 250
 set anti_gravity_gain = 5000
-set feedforward_transition = 19
+set feedforward_transition = 18
 set acc_limit_yaw = 100
 set acc_limit = 0
 set crash_dthreshold = 50
@@ -690,18 +690,18 @@ set pidsum_limit_yaw = 400
 set yaw_lowpass_hz = 0
 set throttle_boost = 8
 set throttle_boost_cutoff = 15
-set p_pitch = 50
-set i_pitch = 50
-set d_pitch = 27
-set f_pitch = 55
-set p_roll = 46
-set i_roll = 45
-set d_roll = 25
-set f_roll = 55
+set p_pitch = 58
+set i_pitch = 65
+set d_pitch = 35
+set f_pitch = 170
+set p_roll = 50
+set i_roll = 60
+set d_roll = 30
+set f_roll = 170
 set p_yaw = 65
-set i_yaw = 45
-set d_yaw = 0
-set f_yaw = 60
+set i_yaw = 60
+set d_yaw = 20
+set f_yaw = 120
 set p_level = 50
 set i_level = 50
 set d_level = 75
@@ -768,7 +768,7 @@ set horizon_tilt_expert_mode = OFF
 set abs_control_gain = 0
 set abs_control_limit = 90
 set abs_control_error_limit = 20
-profile 2
+profile 1
 rateprofile 0
 
 set thr_mid = 50
@@ -879,5 +879,3 @@ set throttle_limit_type = OFF
 set throttle_limit_percent = 100
 rateprofile 0
 save
-
-Write your command here
