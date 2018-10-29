@@ -4,21 +4,33 @@
 mcu_id 003200364234570c20343534
 defaults nosave
 name LancusFPV
+resource SERVO 1 B07
+resource SERIAL_RX 11 F00
+resource ESCSERIAL 1 F00
+servo 0 1000 2000 1500 100 4
+servo 1 1000 2000 1500 100 5
+servo 2 1000 2000 1500 100 6
+servo 3 1000 2000 1500 100 7
+servo 4 1000 2000 1500 100 8
+servo 5 1000 2000 1500 100 9
+servo 6 1000 2000 1500 100 10
+servo 7 1000 2000 1500 100 11
 
 feature MOTOR_STOP
-feature LED_STRIP
+feature CHANNEL_FORWARDING
 beeper -ON_USB
 map TAER1234
 serial 2 2048 115200 57600 0 115200
 led 0 2,8::C:0
-led 1 3,8::C:0
+led 1 3,8::CB:0
 aux 0 0 2 1300 1700 0 0
 aux 1 2 3 900 1300 0 0
 aux 2 27 2 900 1300 0 0
 aux 3 13 0 1375 1650 0 0
-aux 4 19 0 1775 2100 0 0
-aux 5 26 2 1300 1700 0 0
-aux 6 28 3 1275 1700 0 0
+aux 4 15 2 1300 2100 0 0
+aux 5 19 0 1775 2100 0 0
+aux 6 26 2 1300 1700 0 0
+aux 7 28 3 1275 1700 0 0
 set rssi_channel = 6
 set rc_interp = MANUAL
 set rc_interp_int = 9
@@ -26,8 +38,9 @@ set rc_smoothing_type = FILTER
 set blackbox_p_ratio = 64
 set motor_pwm_protocol = DSHOT600
 set bat_capacity = 1300
+set vbat_max_cell_voltage = 42
 set current_meter = VIRTUAL
-set vbat_scale = 111
+set vbat_scale = 112
 set yaw_motors_reversed = ON
 set small_angle = 180
 set osd_rssi_alarm = 45
@@ -73,9 +86,10 @@ set osd_stat_rtc_date_time = ON
 set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
 set debug_mode = GYRO_SCALED
-set vtx_band = 3
+set vtx_band = 5
 set vtx_channel = 4
-set vtx_freq = 5645
+set vtx_power = 2
+set vtx_freq = 5769
 profile 0
 
 set dterm_notch_cutoff = 0
@@ -88,12 +102,21 @@ profile 1
 
 set dterm_notch_cutoff = 0
 set vbat_pid_gain = ON
-set feedforward_transition = 19
+set feedforward_transition = 18
 set iterm_relax = RP
 set iterm_relax_cutoff = 10
 set throttle_boost = 8
-set f_pitch = 55
-set f_roll = 55
+set p_pitch = 58
+set i_pitch = 65
+set d_pitch = 35
+set f_pitch = 170
+set p_roll = 50
+set i_roll = 60
+set d_roll = 30
+set f_roll = 170
+set i_yaw = 60
+set d_yaw = 20
+set f_yaw = 120
 profile 2
 
 set dterm_notch_cutoff = 0
@@ -112,7 +135,7 @@ set f_roll = 55
 set i_yaw = 60
 set d_yaw = 20
 set f_yaw = 57
-profile 2
+profile 1
 rateprofile 0
 
 set thr_expo = 70
